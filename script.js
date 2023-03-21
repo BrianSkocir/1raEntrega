@@ -1,49 +1,43 @@
 console.log("Archivo cargado con exito");
 alert("Bienvenido a la calculadora de promedio para alumnos");
-let matematicas = parseFloat(prompt("Ingrese la nota final en Matematicas"));
-matematicas = parseFloat(matematicas);
-while ((matematicas < 1) | (matematicas > 10)) {
-  matematicas = prompt( "Nota invalida, ingrese nota entre el 1 y 10 para la materia de Matematicas");
-}
-let lenguaYLiteratura = prompt("Ingrese la nota final en Lengua y Literatura");
-lenguaYLiteratura = Number(lenguaYLiteratura);
-while ((lenguaYLiteratura < 1) | (lenguaYLiteratura > 10)) {
-  lenguaYLiteratura = Number(prompt("Nota invalida, ingrese nota entre el 1 y 10 para la materia de Lengua y Literatura"));
-}
-let historia = prompt("Ingrese la nota final en Historia");
-historia = Number(historia);
-while ((historia < 1) | (historia > 10)) {
-  historia = Number(prompt("Nota invalida, ingrese nota entre el 1 y 10 para la materia de Historia"));
-}
-let cienciasSociales = prompt("Ingrese la nota final en Ciencias Sociales");
-cienciasSociales = Number(cienciasSociales);
-while ((cienciasSociales < 1) | (cienciasSociales > 10)) {cienciasSociales = Number(prompt("Nota invalida, ingrese nota entre el 1 y 10 para la materia de Ciencias Sociales"));
-}
-let cienciasNaturales = prompt("Ingrese la nota final en Ciencias Naturales");
-cienciasNaturales = Number(cienciasNaturales);
-while ((cienciasNaturales < 1) | (cienciasNaturales > 10)) {
-  cienciasNaturales = Number(prompt("Nota invalida, ingrese nota entre el 1 y 10 para la materia de Ciencias Naturales"));
+
+let nombreAlumno= prompt("Por favor ingrese el nombre del alumno")
+let apellidoAlumno= prompt("Por favor ingrese el apellido del alumno")
+
+function ingresarMateria(parametro1, parametro2){
+    parametro2= prompt ("Por favor ingrese la nota de " + parametro1)
+    while ((parametro2<1) | (parametro2>10) | NaN){
+        parametro2= prompt("Nota invalida, ingrese una nota entre el 1 y el 10")
+    } 
+    alert ("Su nota ingresada para "+ parametro1 +" es "+ parametro2)
+    return Number(parametro2)
 }
 
+let notaMatematica = ingresarMateria("Matematica")
+let notaHistoria = ingresarMateria("Historia")
+let notaCienciasSociales = ingresarMateria("Ciencias Sociales")
+let notaCienciasNaturales = ingresarMateria("Ciencias Naturales")
+let notaLenguaYLiteratura = ingresarMateria("Lengua y Literatura")
 
-const suma =
-  matematicas +
-  lenguaYLiteratura +
-  historia +
-  cienciasNaturales +
-  cienciasSociales;
+const suma= parseInt(notaMatematica + notaHistoria + notaCienciasSociales + notaCienciasNaturales + notaLenguaYLiteratura)
 
-alert("la suma es " + suma);
+alert ("La suma es "+ suma)
 
-const promedio = suma / 5;
+const promedio = suma/5
 
-alert("El promedio del alumno es de " + promedio);
+alert ("El promedio de "+ nombreAlumno+" "+apellidoAlumno+" es de "+promedio)
 
 if (promedio >= 7) {
-
     document.write(
-    "El promedio es de " +promedio +" por lo tanto tiene todas las materias APROBADAS.")
-    ;} 
-    else {  
-        document.write("El promedio es de " +promedio +" por lo tanto tiene una o mas materia/s DESAPROBADA/S.");
-}
+      "El promedio es de " +
+        promedio +
+        " por lo tanto tiene todas las materias APROBADAS."
+    );
+  } else {
+    document.write(
+      "El promedio es de " +
+        promedio +
+        " por lo tanto tiene una o mas materia/s DESAPROBADA/S."
+    );
+  }
+  
